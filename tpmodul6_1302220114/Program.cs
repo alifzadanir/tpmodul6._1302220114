@@ -41,3 +41,32 @@ public class Program
         video.PrintVideoDetails();
     }
 }
+
+
+public class SayaTubeVideo
+{
+    // ...
+
+    public void IncreasePlayCount(int increaseAmount)
+    {
+        if (increaseAmount > 10000000)
+        {
+            throw new ArgumentException("Penambahan play count maksimal 10.000.000 per panggilan method");
+        }
+
+        try
+        {
+            checked
+            {
+                playCount += increaseAmount;
+            }
+        }
+        catch (OverflowException)
+        {
+            Console.WriteLine("Jumlah play count melebihi batas integer");
+        }
+    }
+
+}
+
+
